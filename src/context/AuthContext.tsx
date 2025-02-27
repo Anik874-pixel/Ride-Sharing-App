@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 interface AuthContextType {
   user: any
   isLoading: boolean
-  login: (username: string, password: string) => Promise<void>
+  login: (username: string, password: string) => Promise<void> // ✅ Fixed Return Type Here
   logout: () => void
   isAuthenticated: boolean
 }
@@ -41,7 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const login = async (username: string, password: string) => {
+  const login = async (username: string, password: string): Promise<void> => { // ✅ Fixed Return Type
     try {
       const response = await fetch('https://dummyjson.com/auth/login', {
         method: 'POST',
@@ -58,12 +58,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem('user', JSON.stringify(data))
         setUser(data)
         router.push('/dashboard')
-        return true
       }
-      return false
     } catch (error) {
       console.error('Login error:', error)
-      return false
     }
   }
 
