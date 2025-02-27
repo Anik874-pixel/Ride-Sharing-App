@@ -98,7 +98,7 @@ export default function ShareRide({ rideId, fare, onClose }: ShareRideProps) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg p-6 max-w-md w-full">
+      <div className="bg-white rounded-lg p-6 max-w-md w-full dark:bg-black dark:text-gray-50">
         <div className="flex justify-between items-start mb-4">
           <h2 className="text-xl font-semibold">Share Ride</h2>
           <button
@@ -110,10 +110,10 @@ export default function ShareRide({ rideId, fare, onClose }: ShareRideProps) {
         </div>
 
         <div className="mb-6">
-          <div className="bg-gray-50 p-4 rounded-lg mb-4">
-            <p className="text-sm text-gray-600">Sharing Code:</p>
+          <div className="bg-gray-50 dark:bg-black p-4 rounded-lg mb-4">
+            <p className="text-sm text-gray-500">Sharing Code:</p>
             <div className="flex items-center space-x-2 mt-1">
-              <code className="bg-gray-100 px-3 py-1 rounded text-lg font-mono">
+              <code className="bg-gray-500 px-3 py-1 rounded text-lg font-mono">
                 {sharingCode}
               </code>
               <button
@@ -127,7 +127,7 @@ export default function ShareRide({ rideId, fare, onClose }: ShareRideProps) {
 
           <div className="space-y-4">
             <div>
-              <p className="text-sm font-medium">Fare Split:</p>
+              <p className="text-sm font-medium text-gray-500 ">Fare Split:</p>
               <p className="text-2xl font-semibold">₹{splitAmount}/person</p>
               <p className="text-sm text-gray-500">
                 Total fare: ₹{fare} split among {passengers.length + 1} people
@@ -181,7 +181,7 @@ export default function ShareRide({ rideId, fare, onClose }: ShareRideProps) {
         <div className="flex space-x-3">
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-2 border rounded-md hover:bg-gray-50"
+            className="flex-1 px-4 py-2 border rounded-md "
           >
             Cancel
           </button>
@@ -190,7 +190,7 @@ export default function ShareRide({ rideId, fare, onClose }: ShareRideProps) {
             disabled={isSharing || passengers.some(p => p.error || !p.phone)}
             className={`flex-1 px-4 py-2 rounded-md ${
               isSharing || passengers.some(p => p.error || !p.phone)
-                ? 'bg-gray-300 cursor-not-allowed'
+                ? 'bg-gray-300 text-gray-800 cursor-not-allowed'
                 : 'bg-blue-500 text-white hover:bg-blue-600'
             }`}
           >

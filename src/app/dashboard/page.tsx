@@ -2,7 +2,6 @@
 
 import { useAuth } from '@/context/AuthContext'
 import ProtectedRoute from '@/components/auth/ProtectedRoute'
-import ProfileManager from '@/components/profile/ProfileManager'
 import RideBooking from '@/components/ride/RideBooking'
 
 export default function DashboardPage() {
@@ -26,7 +25,6 @@ export default function DashboardPage() {
 
           <div className="space-y-6">
             <RideBooking />
-            <ProfileManager />
           </div>
         </div>
       </div>

@@ -510,7 +510,7 @@ export default function RideBooking() {
 
       {/* Route Info */}
       {distance && duration && (
-        <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+        <div className="mb-6 p-4 bg-gray-50 dark:bg-black rounded-lg">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-sm text-gray-600">Distance</p>
@@ -521,31 +521,31 @@ export default function RideBooking() {
               <p className="font-semibold">{duration}</p>
             </div>
             {calculatedFare > 0 && (
-              <div className="bg-blue-50 p-3 rounded-lg relative group">
+              <div className="bg-blue-50 p-3 rounded-lg relative group dark:bg-black">
                 <p className="text-sm text-blue-600 font-medium">Estimated Fare</p>
                 <p className="text-xl font-bold text-blue-700">₹{calculatedFare}</p>
                 
                 {/* Tooltip */}
-                <div className="absolute invisible group-hover:visible bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-64 right-0 top-full mt-2 z-10">
-                  <h4 className="font-semibold mb-2 text-gray-800">Fare Breakdown</h4>
+                <div className="absolute invisible group-hover:visible bg-white dark:bg-black p-4 rounded-lg shadow-lg border border-gray-200 w-64 right-0 top-full mt-2 z-10">
+                  <h4 className="font-semibold mb-2 text-gray-500 ">Fare Breakdown</h4>
                   <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Base Fare:</span>
+                    <div className="flex justify-between text-gray-500">
+                      <span className="text-gray-500">Base Fare:</span>
                       <span className="font-medium">₹{fareBreakdown.baseFare}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Distance Fare:</span>
+                    <div className="flex justify-between text-gray-500">
+                      <span className="text-gray-500">Distance Fare:</span>
                       <span className="font-medium">₹{fareBreakdown.distanceFare}</span>
                     </div>
                     {fareBreakdown.surgeFare > 0 && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Surge Charge:</span>
+                      <div className="flex justify-between text-gray-500">
+                        <span className="text-gray-500">Surge Charge:</span>
                         <span className="font-medium">₹{fareBreakdown.surgeFare}</span>
                       </div>
                     )}
                     <div className="border-t pt-2 mt-2">
                       <div className="flex justify-between font-semibold">
-                        <span className="text-gray-800">Total Fare:</span>
+                        <span className="text-gray-500 ">Total Fare:</span>
                         <span className="text-blue-600">₹{fareBreakdown.total}</span>
                       </div>
                     </div>
@@ -593,10 +593,10 @@ export default function RideBooking() {
         <button 
           onClick={handleBookNow}
           disabled={!isValidBooking}
-          className={`dark:bg-gray-700 flex-1 py-2 px-4 rounded-md ${
+          className={`dark:bg-blue-600 flex-1 py-2 px-4 rounded-md dark:text-gray-50 ${
             !isValidBooking
-              ? 'bg-gray-300 cursor-not-allowed'
-              : 'bg-blue-500 text-white hover:bg-blue-600'
+              ? 'bg-blue-500 text-white cursor-not-allowed'
+              : 'bg-blue-500 text-white hover:bg-blue-500'
           }`}
         >
           Book Now
@@ -604,7 +604,7 @@ export default function RideBooking() {
         <button
           onClick={() => setShowShareModal(true)}
           disabled={!isValidBooking}
-          className={`px-4 py-2 rounded-md dark:bg-zinc-900 dark:text-gray-50 ${
+          className={`px-4 py-2 rounded-md dark:bg-gray-900 dark:text-gray-50 ${
             !isValidBooking
               ? 'border border-gray-300 text-gray-400 cursor-not-allowed'
               : 'border border-blue-500 text-blue-500 hover:bg-blue-50'

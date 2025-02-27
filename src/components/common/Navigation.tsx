@@ -9,7 +9,7 @@ export default function Navigation() {
   return (
     <nav className="bg-white shadow-md mb-6 dark:bg-black dark:text-gray-50">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="flex space-x-8">
+        <div className="flex space-x-8 overflow-x-visible overflow-y-hidden">
           <Link 
             href="/dashboard"
             className={`py-3 px-5 text-md font-semibold border-b-2 rounded-md transition-all duration-300 flex items-center space-x-2 transform hover:scale-105 hover:shadow-lg ${
